@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Typography, Grid, Button } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import { Public as GlobeIcon } from '@mui/icons-material';
 import { City } from '@/types';
 import { CITIES } from '@/constants/cities';
@@ -56,28 +56,42 @@ export default function CityList({ onCitySelect }: CityListProps) {
           <GlobeIcon sx={{ fontSize: 140, color: colors.white }} />
         </Box>
 
-        <Grid container spacing={3} justifyContent="center">
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 3,
+            justifyContent: 'center',
+          }}
+        >
           {CITIES.map((city) => (
-            <Grid item xs={4} key={city.name}>
+            <Box
+              key={city.name}
+              sx={{
+                width: { xs: '100%', sm: '45%', md: '30%' },
+              }}
+            >
               <Button
-                onClick={() => onCitySelect(city)}
                 fullWidth
+                onClick={() => onCitySelect(city)}
                 sx={{
                   color: colors.white,
-                  fontSize: 16,
                   fontWeight: 300,
+                  letterSpacing: '0.05em',
+                  py: 1.2,
                   textTransform: 'none',
-                  padding: '8px 16px',
+                  backgroundColor: 'transparent',
                   '&:hover': {
-                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    backgroundColor: 'rgba(255,255,255,0.08)',
+                    borderColor: colors.white,
                   },
                 }}
               >
                 {city.name}
               </Button>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Box>
     </Box>
   );
