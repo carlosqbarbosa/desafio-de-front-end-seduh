@@ -14,7 +14,12 @@ export function useWeather(city: City | null) {
       try {
         setLoading(true);
         setError(null);
-        const weatherData = await getWeatherByCity(city);
+
+        const weatherData = await getWeatherByCity(
+          city.lat,
+          city.lon
+        );
+
         setData(weatherData);
       } catch (err) {
         setError(err as Error);

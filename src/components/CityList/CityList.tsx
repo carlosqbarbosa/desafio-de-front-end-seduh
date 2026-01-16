@@ -2,8 +2,9 @@
 
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { Public as GlobeIcon } from '@mui/icons-material';
-import { City } from '@/types/city';
+import { City } from '@/types';
 import { CITIES } from '@/constants/cities';
+import { colors } from '@/theme/colors';
 
 interface CityListProps {
   onCitySelect: (city: City) => void;
@@ -14,23 +15,24 @@ export default function CityList({ onCitySelect }: CityListProps) {
     <Box
       sx={{
         minHeight: '100vh',
-        bgcolor: '#0F0F0F',
+        bgcolor: colors.black,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: '32px',
       }}
     >
       <Box
         sx={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: 480, 
+          maxWidth: 480,
         }}
       >
         <Typography
           sx={{
-            color: '#fff',
-            fontSize: 64,
+            color: colors.white,
+            fontSize: { xs: 48, sm: 64 },
             fontWeight: 200,
             letterSpacing: '0.08em',
             mb: 1,
@@ -41,7 +43,7 @@ export default function CityList({ onCitySelect }: CityListProps) {
 
         <Typography
           sx={{
-            color: 'rgba(255,255,255,0.5)',
+            color: colors.textMuted,
             fontSize: 18,
             fontWeight: 300,
             mb: 6,
@@ -51,22 +53,23 @@ export default function CityList({ onCitySelect }: CityListProps) {
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-          <GlobeIcon sx={{ fontSize: 140, color: '#fff' }} />
+          <GlobeIcon sx={{ fontSize: 140, color: colors.white }} />
         </Box>
 
         <Grid container spacing={3} justifyContent="center">
           {CITIES.map((city) => (
-            <Grid item xs={4} key={city.name} textAlign="center">
+            <Grid item xs={4} key={city.name}>
               <Button
                 onClick={() => onCitySelect(city)}
+                fullWidth
                 sx={{
-                  color: '#fff',
-                  fontSize: 18,
+                  color: colors.white,
+                  fontSize: 16,
                   fontWeight: 300,
                   textTransform: 'none',
+                  padding: '8px 16px',
                   '&:hover': {
-                    backgroundColor: 'transparent',
-                    opacity: 0.6,
+                    backgroundColor: 'rgba(255,255,255,0.05)',
                   },
                 }}
               >
