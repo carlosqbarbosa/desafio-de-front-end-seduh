@@ -1,12 +1,17 @@
-import { WeatherResponse } from '@/types/weather'
+import { WeatherData } from '@/types'
 import WeatherCard from '../WeatherCard/WeatherCard'
 import TemperatureTimeline from '../TemperatureTimeline/TemperatureTimeline'
 
-export default function WeatherDetails({ weather }: { weather: WeatherResponse }) {
+interface WeatherDetailsProps {
+  weather: WeatherData
+  onBack: () => void
+}
+
+export default function WeatherDetails({ weather, onBack }: WeatherDetailsProps) {
   return (
     <>
-      <WeatherCard weather={weather} />
-      <TemperatureTimeline forecast={weather.forecast.forecastday[0]} />
+      <WeatherCard data={weather} onBack={onBack} />
+      <TemperatureTimeline periods={weather.periods} />
     </>
   )
 }
