@@ -102,7 +102,7 @@ export default function WeatherCard({ data, onBack }: WeatherCardProps) {
 
         <Box sx={{ my: 6 }}>
           <Image
-            src="/assets/BsSun.png"
+            src="/assets/BsSun (1).png"
             alt="weather"
             width={140}
             height={140}
