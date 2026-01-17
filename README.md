@@ -1,83 +1,77 @@
-## ⚙️ Desafio de Front-end
+# Weather - Desafio Front-end (SEDUH)
 
----
+Este projeto é uma aplicação de previsão do tempo responsiva, desenvolvida como parte de um desafio técnico para SEDUH. A aplicação reproduz fielmente um design de alta fidelidade , consumindo dados reais de clima e apresentando-os com ícones dinâmicos e horários ajustados ao fuso horário local de cada cidade.
 
-### 📝 Descrição do Projeto
+##  Link do Projeto (Deploy)
+ **Acesse a aplicação aqui:** [https://desafioseduh.netlify.app/](https://desafioseduh.netlify.app/)
 
-Desenvolver um **Web Application** que permita aos usuários **listar** e **selecionar** uma das cidades pré-definidas para, em seguida, exibir uma tela de **detalhes** com as **informações climáticas** da cidade escolhida, utilizando uma **API pública** de dados meteorológicos.
+##  Tecnologias Utilizadas
 
----
+* **Framework:** Next.js 14 (App Router)
+* **Linguagem:** TypeScript
+* **Estilização:** Material UI
+* **Ícones:** Lucide React e imgs
+* **Testes:** Jest & React Testing Library
+* **Containerização:** Docker
 
-### 📍 Cidades para Listagem
+##  Funcionalidades
 
-O aplicativo deve listar obrigatoriamente as seguintes cidades e seus respectivos países:
+* **Listagem de Cidades:** Seleção rápida entre cidades pré-definidas (London, Vancouver, Recife e etc).
+* **Detalhes do Clima:** Visualização de temperatura atual, mínima, máxima, umidade e velocidade do vento.
+* **Previsão por Período:** Dados segmentados por Madrugada, Manhã, Tarde e Noite.
+* **Fuso Horário Real:** Horários de nascer (sunrise) e pôr do sol (sunset) calculados com base no timezone da cidade.
+* **Ícones Dinâmicos:** Os ícones mudam conforme a condição (Sol, Chuva, Neve) e o horário (Dia/Noite).
+* **Design Responsivo:** Layout adaptável para dispositivos móveis e desktops.
+* **CI/CD Ready:** Configuração de Docker pronta para deploy.
 
-* **Dallol** (Etiópia - ET)
-* **Fairbanks** (Estados Unidos - US)
-* **Londres** (Reino Unido - GB)
-* **Recife** (Brasil - BR)
-* **Vancouver** (Canadá - CA)
-* **Yakutsk** (Rússia - RU)
+##  Como Rodar o Projeto
 
----
+Você pode rodar a aplicação de duas formas: **Localmente** ou via **Docker**.
 
-### ☁️ Integração e Dados Climáticos
+### Pré-requisitos
+* Node.js (v18 ou superior)
+* NPM ou Yarn
+* Docker (Opcional)
 
-* **APIs Sugeridas:**
-    * [OpenWeatherMap - Current Weather](https://www.openweathermap.org/current)
-    * [WeatherAPI](https://www.weatherapi.com)
+### 1. Instalação Local
 
-* **Layout (Figma):**
-    * [Link do Layout](https://www.figma.com/design/HNu9zrHdknRvoQyVPvk08g/Sem-t%C3%ADtulo?node-id=0-1&t=XxZtZTWhxKPbfuKY-1)
+```powershell
+# Clone este repositório
+git clone [https://github.com/carlosqbarbosa/desafio-de-front-end-seduh](https://github.com/carlosqbarbosa/desafio-de-front-end-seduh)
 
-* **Horários de Referência:** Para exibição de temperaturas específicas do dia, use os seguintes horários (conforme o fuso horário da cidade):
-    * **Dawn (Amanhecer):** $03:00$
-    * **Morning (Manhã):** $09:00$
-    * **Afternoon (Tarde):** $15:00$
-    * **Night (Noite):** $21:00$
+# Entre na pasta
+cd desafio-de-front-end-seduh
 
-* **Ícones:** Utilize os ícones fornecidos no layout para representar as condições climáticas de forma coerente.
+# Instale as dependências
+npm install
 
----
+# Rode o servidor de desenvolvimento
+yarn dev
 
-### 💻 Requisitos Técnicos e de Avaliação
+```
 
-#### 1. Estrutura e Preparação
-* **Fork do Repositório:** Realizar o fork deste repositório para iniciar o desenvolvimento.
+Acesse http://localhost:3000 no seu navegador.
 
-#### 2. Hospedagem
-* O projeto final deve ser publicado e acessível através de uma das seguintes plataformas:
-    * **Netlify**
-    * **Vercel**
+### 2. Rodando com Docker 
 
-#### 3. Frontend e Frameworks
-* **Frameworks Opcionais (Preferência na Ordem):**
-    1.  **React** com **Next.js**
-    2.  **React** com **Vite**
-    3.  **Angular**
+```powershell
+# Construir a imagem
+docker build -t weather-app .
 
-#### 4. Design e Responsividade
-* **Fidelidade ao Layout:** A implementação deve seguir rigorosamente o design fornecido no link do Figma.
-* **Responsividade:** O layout deve se adaptar corretamente a **3 breakpoints** principais:
-    * **Smartphone**
-    * **Tablet**
-    * **Desktop**
+# Rodar o container na porta 3000
+docker run -p 3000:3000 weather-app
 
-#### 5. Qualidade de Código
-* **Testes Unitários:** Implementar testes unitários para garantir a funcionalidade e a qualidade do código.
+```
 
----
+Acesse http://localhost:3000 no seu navegador.
 
-### ⭐ Diferenciais (Plus)
+##  Rodando os Testes
 
-* **Containerização:** Opcionalmente, configure o projeto para **rodar através de um container Docker**.
+O projeto possui testes unitários configurados para garantir a integridade dos componentes.
 
----
+```powershell
+# Rodar todos os testes
+yarn jest
 
-### 🚀 Entrega
+```
 
-Após finalizar o projeto e publicá-lo, responda ao nosso contato enviando o **link do repositório (fork)** e o **link da aplicação hospedada**.
-
-**Boa sorte!**
-
----
